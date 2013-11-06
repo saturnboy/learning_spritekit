@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MyScene.h"
+#import "MyScene1.h"
 #import "MyScene2.h"
 #import "MyScene3.h"
 
@@ -22,7 +23,7 @@
     [super viewWillLayoutSubviews];
     
     SKView *skView = (SKView *)self.view;
-    SKScene *scene = [MyScene3 sceneWithSize:skView.bounds.size];
+    SKScene *scene = [MyScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     [skView presentScene:scene];
 }

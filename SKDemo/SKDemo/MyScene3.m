@@ -26,7 +26,7 @@ static inline CGPoint ADD(const CGPoint a, const CGPoint b) {
     if (self = [super initWithSize:size]) {
         NSLog(@"MyScene3: sz=%.1fx%.1f", size.width, size.height);
         
-        self.backgroundColor = [SKColor colorWithRed:0.2 green:0.1 blue:0.1 alpha:1.0];
+        self.backgroundColor = [SKColor colorWithRed:0.3 green:0.1 blue:0.1 alpha:1.0];
         
         //init center
         _center = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -65,7 +65,7 @@ static inline CGPoint ADD(const CGPoint a, const CGPoint b) {
     CGPoint loc = [touch locationInNode:self];
     
     if ([_alien containsPoint:loc]) {
-        //2. Try iPhone vs iPad pos
+        //2. Try to adjust positioning for iPhone vs iPad
         float x = (float)arc4random_uniform(201) - 100.0f;
         float y = (float)arc4random_uniform(201) - 100.0f;
         NSLog(@"HIT!: (%.1f,%.1f)", x, y);
@@ -75,7 +75,7 @@ static inline CGPoint ADD(const CGPoint a, const CGPoint b) {
         SKAction *move = [SKAction moveTo:ADD(_center, CGPointMake(x,y)) duration:0.1];
         SKAction *bg = [SKAction runBlock:^{
             float red = CGColorGetComponents(self.backgroundColor.CGColor)[0] + 0.04f;
-            if (red > 0.9) { red = 0.0f; }
+            if (red > 0.8) { red = 0.3f; }
             self.backgroundColor = [SKColor colorWithRed:red green:0.1 blue:0.1 alpha:1.0];
         }];
 
@@ -84,7 +84,8 @@ static inline CGPoint ADD(const CGPoint a, const CGPoint b) {
                                                fadeOut,
                                                [SKAction group:@[move,bg]],
                                                fadeIn,
-                                               _flyAnim]] withKey:@"ANIM"];
+                                               _flyAnim]]
+                  withKey:@"ANIM"];
     } else {
         NSLog(@"miss");
         [_alien runAction:_miss];

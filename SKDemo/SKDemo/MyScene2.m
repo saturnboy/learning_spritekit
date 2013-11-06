@@ -17,7 +17,7 @@
     if (self = [super initWithSize:size]) {
         NSLog(@"MyScene2: sz=%.1fx%.1f", size.width, size.height);
         
-        self.backgroundColor = [SKColor colorWithRed:0.6 green:0.7 blue:0.4 alpha:1.0];
+        self.backgroundColor = [SKColor colorWithRed:0.2 green:0.3 blue:0.1 alpha:1.0];
     }
     return self;
 }

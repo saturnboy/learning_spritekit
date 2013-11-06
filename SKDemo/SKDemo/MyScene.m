@@ -2,47 +2,52 @@
 //  MyScene.m
 //  SKDemo
 //
-//  Created by Justin on 11/4/13.
+//  Created by Justin on 11/6/13.
 //  Copyright (c) 2013 Saturnboy. All rights reserved.
 //
 
 #import "MyScene.h"
 
-@interface MyScene ()
-@property (nonatomic) SKSpriteNode *ship;
-@end
-
-static inline CGPoint ADD(const CGPoint a, const CGPoint b) {
-    return CGPointMake(a.x + b.x, a.y + b.y);
-}
-
 @implementation MyScene
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
-        NSLog(@"MyScene: sz=%.1fx%.1f", size.width, size.height);
+        /* Setup your scene here */
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
-        _ship = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        _ship.position = CGPointMake(0, 0);
-        _ship.xScale = 0.25;
-        _ship.yScale = 0.25;
-        [self addChild:_ship];
+        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        
+        myLabel.text = @"Hello, World!";
+        myLabel.fontSize = 30;
+        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
+                                       CGRectGetMidY(self.frame));
+        
+        [self addChild:myLabel];
     }
     return self;
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint loc = [touch locationInNode:self];
-    _ship.position = loc;
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    /* Called when a touch begins */
+    
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInNode:self];
+        
+        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+        
+        sprite.position = location;
+        
+        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
+        
+        [sprite runAction:[SKAction repeatActionForever:action]];
+        
+        [self addChild:sprite];
+    }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    // 1. Make it move faster, slower, backwards, etc...
-    // 2. Make it bounch at the edges...
-    _ship.position = ADD(_ship.position, CGPointMake(1,1));
+    /* Called before each frame is rendered */
 }
 
 @end
