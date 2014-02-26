@@ -47,7 +47,6 @@
     return self;
 }
 
-
 #pragma mark - game loop
 
 -(void)update:(CFTimeInterval)currentTime {
