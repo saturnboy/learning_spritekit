@@ -40,7 +40,6 @@
     return self;
 }
 
-
 #pragma mark - game loop
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -56,21 +55,22 @@
     
     if ([_alien containsPoint:pos]) {
         NSLog(@"HIT!");
-        
-        //2. How would you adjust positioning for iPhone vs iPad
+        [self runAction:_hit];
         
         //compute the new position
         CGPoint newPos = CGPointMake(_center.x + arc4random_uniform(201) - 100.0f,
                                   _center.y + arc4random_uniform(201) - 100.0f);
         
+        //1. Instead of the above, how could you adjust positioning for iPhone vs iPad
+        
         SKAction *fadeOut = [SKAction fadeOutWithDuration:0.2f];
         SKAction *fadeIn = [SKAction fadeInWithDuration:0.2f];
         SKAction *move = [SKAction moveTo:newPos duration:0.2f];
 
-        [_alien runAction:[SKAction sequence:@[_hit,fadeOut,move,fadeIn]] withKey:@"ANIM"];
+        [_alien runAction:[SKAction sequence:@[fadeOut,move,fadeIn]] withKey:@"ANIM"];
     } else {
         NSLog(@"miss");
-        [_alien runAction:_miss];
+        [self runAction:_miss];
     }
 }
 
