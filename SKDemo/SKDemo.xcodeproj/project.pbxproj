@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D04C937F18BE77B40061A80D /* MyScene4.m in Sources */ = {isa = PBXBuildFile; fileRef = D04C937E18BE77B40061A80D /* MyScene4.m */; };
+		D04C938218BE9C9B0061A80D /* MyScene5.m in Sources */ = {isa = PBXBuildFile; fileRef = D04C938118BE9C9B0061A80D /* MyScene5.m */; };
 		D0EB5EC0182A08F100453603 /* MyScene2.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EB5EBF182A08F100453603 /* MyScene2.m */; };
 		D0EB5EC7182A0DFA00453603 /* fire.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0EB5EC6182A0DFA00453603 /* fire.wav */; };
 		D0EB5EC9182A0E4100453603 /* miss.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0EB5EC8182A0E4100453603 /* miss.wav */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		D04C937D18BE77A40061A80D /* MyScene4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene4.h; sourceTree = "<group>"; };
 		D04C937E18BE77B40061A80D /* MyScene4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScene4.m; sourceTree = "<group>"; };
+		D04C938018BE9C9B0061A80D /* MyScene5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene5.h; sourceTree = "<group>"; };
+		D04C938118BE9C9B0061A80D /* MyScene5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScene5.m; sourceTree = "<group>"; };
 		D0EB5EBE182A08F100453603 /* MyScene2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene2.h; sourceTree = "<group>"; };
 		D0EB5EBF182A08F100453603 /* MyScene2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScene2.m; sourceTree = "<group>"; };
 		D0EB5EC6182A0DFA00453603 /* fire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fire.wav; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				D0EB5ECB182A124D00453603 /* MyScene3.m */,
 				D04C937D18BE77A40061A80D /* MyScene4.h */,
 				D04C937E18BE77B40061A80D /* MyScene4.m */,
+				D04C938018BE9C9B0061A80D /* MyScene5.h */,
+				D04C938118BE9C9B0061A80D /* MyScene5.m */,
 				D0F38B5B1827D59A001C9FFC /* Images.xcassets */,
 				D0EB5ECD182A168F00453603 /* alien.atlas */,
 				D0EB5EC1182A0C3F00453603 /* sounds */,
@@ -303,6 +308,7 @@
 				D0F38B4C1827D59A001C9FFC /* AppDelegate.m in Sources */,
 				D0EB5EC0182A08F100453603 /* MyScene2.m in Sources */,
 				D04C937F18BE77B40061A80D /* MyScene4.m in Sources */,
+				D04C938218BE9C9B0061A80D /* MyScene5.m in Sources */,
 				D0F38B481827D59A001C9FFC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
