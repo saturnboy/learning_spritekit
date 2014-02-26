@@ -20,4 +20,6 @@ __iOSMeetup__ - slides from [Learning iOS Meetup](http://www.meetup.com/Boulder-
 
 __iOSDevCamp2013__ - slides from [iOS DevCamp Colorado 2013](http://iosdevcampcolorado.com/post/59715536294/iosdevcamp-denver-2013) on Nov 16, 2013
 
+__MakeItHappen2014__ - slides from MakeItHappen 2014 on Feb 26, 2014
+
 
