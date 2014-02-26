@@ -17,36 +17,53 @@
     if (self = [super initWithSize:size]) {
         NSLog(@"MyScene2: sz=%.1fx%.1f", size.width, size.height);
         
-        self.backgroundColor = [SKColor colorWithRed:0.2 green:0.3 blue:0.1 alpha:1.0];
+        self.backgroundColor = [SKColor colorWithRed:0.1f green:0.3f blue:0.1f alpha:1.0f];
     }
     return self;
 }
 
+#pragma mark - game loop
+
+-(void)update:(CFTimeInterval)currentTime {
+    //do nothing...
+}
+
+#pragma mark - touch handler
+
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
-    CGPoint loc = [touch locationInNode:self];
+    CGPoint pos = [touch locationInNode:self];
+    NSLog(@"TOUCH: (%.1f,%.1f)", pos.x, pos.y);
     
-    SKSpriteNode *ship = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-    ship.position = loc;
-    ship.xScale = 0.2;
-    ship.yScale = 0.2;
-    [self addChild:ship];
+    SKSpriteNode *alien = [SKSpriteNode spriteNodeWithImageNamed:@"alien1.png"];
+    alien.position = pos;
+    [self addChild:alien];
     
-    SKAction *hit = [SKAction playSoundFileNamed:@"fire.wav" waitForCompletion:NO];
-    SKAction *miss = [SKAction playSoundFileNamed:@"miss.wav" waitForCompletion:NO];
-    
-    SKAction *move = [SKAction moveByX:-25.0 y:-25.0 duration:1.0];
-    SKAction *rotate = [SKAction rotateByAngle:-M_PI_2 duration:1];
-    
-    SKAction *fade = [SKAction fadeOutWithDuration:1.5];
+    SKAction *move = [SKAction moveByX:13.0f y:37.0f duration:0.5f];
+    SKAction *rotate = [SKAction rotateByAngle:-M_PI duration:0.5f];
+    SKAction *fadeOut = [SKAction fadeOutWithDuration:0.5f];
     SKAction *remove = [SKAction removeFromParent];
 
-    // 1. Other actions to try: colorize, fadeIn, repeat, scaleBy, wait
-    [ship runAction:[SKAction sequence:@[
-                                         arc4random_uniform(7) < 5 ? hit : miss,
-                                         [SKAction group:@[move, rotate]],
-                                         fade,
-                                         remove]]];
+    [alien runAction:[SKAction sequence:@[move, rotate, fadeOut, remove]]];
+    
+    // Try some other actions...
+    
+    // 1. wait
+    //SKAction *wait = [SKaction waitForDuration:1.0f];
+    
+    // 2. fadeIn
+    //SKAction *fadeIn = [SKAction fadeInWithDuration:1.0f];
+    
+    // 3. scale
+    //SKAction *doubleSize = [SKAction scaleTo:2.0f duration:1.0f];
+    //SKAction *halfSize = [SKAction scaleTo:0.5f duration:1.0f];
+    
+    // 4. colorize
+    //SKAction *blue = [SKAction colorizeWithColor:[UIColor blueColor] colorBlendFactor:1.0f duration:1.0f];
+    //SKAction *green = [SKAction colorizeWithColor:[UIColor greenColor] colorBlendFactor:1.0f duration:1.0f];
+    
+    // 5. actions in parallel
+    //SKAction *parallel = [SKAction group:@[move,rotate]];
 }
 
 @end
