@@ -9,6 +9,7 @@ __SKDemo__ - simple example app to exercise SpriteKit, with some scenes:
 * __MyScene2__ - fancy actions
 * __MyScene3__ - hit testing and sound
 * __MyScene4__ - texture animations
+* __MyScene5__ - the full game
 
 __SKLine__ - simple line drawing app
 
