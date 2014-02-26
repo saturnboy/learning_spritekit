@@ -7,15 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "MyScene.h"
 #import "MyScene1.h"
 #import "MyScene2.h"
 #import "MyScene3.h"
+#import "MyScene4.h"
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 }
 
@@ -23,23 +22,20 @@
     [super viewWillLayoutSubviews];
     
     SKView *skView = (SKView *)self.view;
-    SKScene *scene = [MyScene sceneWithSize:skView.bounds.size];
+    SKScene *scene = [MyScene1 sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     [skView presentScene:scene];
 }
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate {
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
+- (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
