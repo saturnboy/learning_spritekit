@@ -10,12 +10,12 @@
 
 @interface MyScene5 ()
 
+@property (nonatomic) SKTextureAtlas *atlas;
 @property (nonatomic) SKSpriteNode *alien;
 @property (nonatomic) SKSpriteNode *player;
 @property (nonatomic) SKAction *anim;
 @property (nonatomic) SKAction *fire;
 @property (nonatomic) SKAction *miss;
-@property (nonatomic) SKTextureAtlas *atlas;
 @property (nonatomic,assign) NSInteger alienDir;
 
 @end
@@ -91,7 +91,7 @@
             NSLog(@"miss");
             [self runAction:_miss];
             [node removeFromParent];
-        } else if (_alien.alpha > 0.0f && CGRectContainsPoint(_alien.frame, node.position)) {
+        } else if (_alien.alpha > 0.0f && [_alien containsPoint:node.position]) {
             //hit
             NSLog(@"hit");
             _alien.alpha = 0.0f;
