@@ -58,6 +58,7 @@
         _player = [SKSpriteNode spriteNodeWithImageNamed:@"player"];
         _player.anchorPoint = CGPointMake(0.5f,0.0f);
         _player.position = CGPointMake(size.width * 0.5f, _player.size.height);
+        _player.zPosition = 2.0f;
         [self addChild:_player];
         
         _alienDir = 1.0f;
@@ -74,10 +75,10 @@
         
         if (x < _alien.size.width) {
             x = _alien.size.width;
-            _alienDir *= -1;
+            _alienDir = 1;
         } else if (x > (self.size.width - _alien.size.width)) {
             x = self.size.width - _alien.size.width;
-            _alienDir *= -1;
+            _alienDir = -1;
         }
         
         _alien.position = CGPointMake(x, _alien.position.y);
@@ -101,7 +102,7 @@
                                                    [SKAction runBlock:^{
                 _alien.position = CGPointMake(self.size.width * 0.5f + arc4random_uniform(201) - 100.0f,
                                               self.size.height - _alien.size.height);
-                _alienDir *= (arc4random() < 0.5f ? -1 : 1);
+                _alienDir *= (arc4random_uniform(2) == 0 ? -1 : 1);
                 _alien.alpha = 1.0f;
             }]]]];
         }

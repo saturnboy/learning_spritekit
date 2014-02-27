@@ -33,17 +33,17 @@
 
 -(void)update:(CFTimeInterval)currentTime {
     //move it
-    _alien.position = CGPointMake(_alien.position.x + 1, _alien.position.y + 1);
+    _alien.position = CGPointMake(_alien.position.x + 1.0f, _alien.position.y + 1.0f);
     
     // 1. Make it move faster
-    //_alien.position = CGPointMake(_alien.position.x + 2, _alien.position.y + 2);
+    //_alien.position = CGPointMake(_alien.position.x + 2.0f, _alien.position.y + 2.0f);
     
     // 2. Make it get bigger, smaller
-    //_alien.xScale = ?
-    //_alien.yScale = ?
+    //_alien.xScale += ?
+    //_alien.yScale += ?
     
     // 3. Make it rotate
-    //_alien.zRotation = ?
+    //_alien.zRotation += ?
     
     // 4. Make it bounce at the edges...
 }

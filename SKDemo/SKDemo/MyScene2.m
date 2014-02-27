@@ -43,8 +43,6 @@
     SKAction *rotate = [SKAction rotateByAngle:-M_PI duration:0.5f];
     SKAction *fadeOut = [SKAction fadeOutWithDuration:0.5f];
     SKAction *remove = [SKAction removeFromParent];
-
-    [alien runAction:[SKAction sequence:@[move, rotate, fadeOut, remove]]];
     
     // Try some other actions...
     
@@ -64,6 +62,9 @@
     
     // 5. actions in parallel
     //SKAction *parallel = [SKAction group:@[move,rotate]];
+    
+    // run actions on alien
+    [alien runAction:[SKAction sequence:@[move, rotate, fadeOut, remove]]];
 }
 
 @end
